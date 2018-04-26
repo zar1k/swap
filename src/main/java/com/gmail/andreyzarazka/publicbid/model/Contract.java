@@ -2,6 +2,7 @@ package com.gmail.andreyzarazka.publicbid.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -15,8 +16,8 @@ public class Contract {
     private String url;
     private String title;
     private String documentOf;
-    private String datePublished;
-    private String dateModified;
+    private LocalDateTime datePublished;
+    private LocalDateTime dateModified;
     @Id
     private String id;
 
@@ -60,19 +61,19 @@ public class Contract {
         this.documentOf = documentOf;
     }
 
-    public String getDatePublished() {
+    public LocalDateTime getDatePublished() {
         return datePublished;
     }
 
-    public void setDatePublished(String datePublished) {
+    public void setDatePublished(LocalDateTime datePublished) {
         this.datePublished = datePublished;
     }
 
-    public String getDateModified() {
+    public LocalDateTime getDateModified() {
         return dateModified;
     }
 
-    public void setDateModified(String dateModified) {
+    public void setDateModified(LocalDateTime dateModified) {
         this.dateModified = dateModified;
     }
 
