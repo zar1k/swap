@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/zar1k/swap.svg?branch=master)](https://travis-ci.org/zar1k/swap)
+
 # Тестовое задание
 Необходимо создать мини проект, который будет загружать JSON данные из HTTP REST сервера в БД.
 ### Требования
@@ -74,14 +76,14 @@ ALTER TABLE public.contract
 + Пример:<http://localhost:8080/upload>
 + Пример ответа
 
-```JSON
+```
 Body
 {
     "success": "The data is loaded into the database"
 }
 ```
 
-```JSON
+```
 Headers
 content-type →application/json;charset=UTF-8
 date →Sat, 21 Apr 2018 16:38:09 GMT
