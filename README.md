@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/zar1k/swap.svg?branch=master)](https://travis-ci.org/zar1k/swap)
+[![codecov](https://codecov.io/gh/zar1k/swap/branch/master/graph/badge.svg)](https://codecov.io/gh/zar1k/swap)
 
 # Тестовое задание
 Необходимо создать мини проект, который будет загружать JSON данные из HTTP REST сервера в БД.

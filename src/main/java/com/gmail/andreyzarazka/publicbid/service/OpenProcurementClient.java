@@ -9,8 +9,6 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -23,7 +21,6 @@ import java.util.List;
 public class OpenProcurementClient {
     private final OkHttpClient client = new OkHttpClient();
     private final String URL = "https://lb.api-sandbox.openprocurement.org/api/2.4/contracts/ffb2e977797440719208b510ed91548b/documents";
-    private final String KEY = "data";
 
     List<Contract> getContracts() {
         Request request = new Request.Builder()
@@ -33,7 +30,7 @@ public class OpenProcurementClient {
         try {
             Response response = client.newCall(request).execute();
             JSONObject obj = new JSONObject(response.body().string());
-            JSONArray data = obj.getJSONArray(KEY);
+            JSONArray data = obj.getJSONArray("data");
 
             for (int i = 0; i < data.length(); i++) {
                 JSONObject property = data.getJSONObject(i);
@@ -44,9 +41,10 @@ public class OpenProcurementClient {
                 contract.setUrl(property.getString("url"));
                 contract.setTitle(property.getString("title"));
                 contract.setDocumentOf(property.getString("documentOf"));
-                contract.setDatePublished(LocalDateTime.from(ZonedDateTime.parse(property.getString("datePublished"))));
-                contract.setDateModified(LocalDateTime.from(ZonedDateTime.parse(property.getString("dateModified"))));
+                contract.setDatePublished(property.getString("datePublished"));
+                contract.setDateModified(property.getString("dateModified"));
                 contract.setId(property.getString("id"));
+
                 contracts.add(contract);
             }
         } catch (IOException e) {
