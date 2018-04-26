@@ -46,14 +46,14 @@ CREATE DATABASE "public-bid"
 
 CREATE TABLE public.contract
 (
-    id text COLLATE pg_catalog."default" NOT NULL,
-    date_modified text COLLATE pg_catalog."default" NOT NULL,
-    date_published text COLLATE pg_catalog."default" NOT NULL,
-    document_of text COLLATE pg_catalog."default" NOT NULL,
-    format text COLLATE pg_catalog."default" NOT NULL,
-    hash text COLLATE pg_catalog."default" NOT NULL,
-    title text COLLATE pg_catalog."default" NOT NULL,
-    url text COLLATE pg_catalog."default" NOT NULL,
+    id character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    date_modified timestamp without time zone,
+    date_published timestamp without time zone,
+    document_of character varying(255) COLLATE pg_catalog."default",
+    format character varying(255) COLLATE pg_catalog."default",
+    hash character varying(255) COLLATE pg_catalog."default",
+    title character varying(255) COLLATE pg_catalog."default",
+    url character varying(255) COLLATE pg_catalog."default",
     CONSTRAINT contract_pkey PRIMARY KEY (id)
 )
 WITH (
